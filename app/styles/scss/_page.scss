@@ -1,0 +1,32 @@
+
+.content {
+  background: #fff;
+  position: relative;
+  left: 0;
+
+  .row {
+    margin: 0;
+    padding-bottom: 15px;
+  }
+
+  section {
+    .section-title {
+      height: auto;
+      width: 40%;
+      padding: 15px 0;
+      font-size: 24px;
+      vertical-align: middle;
+      color: $udc-dark;
+    }
+
+    .split-line {
+      margin: 0 15px;
+      border-bottom: 1px solid rgba(0, 0, 0, .3);
+    }
+
+    .section-content {
+
+    }
+  }
+}
+

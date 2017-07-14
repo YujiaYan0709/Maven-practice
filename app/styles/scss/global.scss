@@ -1,0 +1,46 @@
+@import "base";
+@import "menu";
+@import "header";
+@import "page";
+@import "ribbon";
+//@import "login";
+@import "table";
+@import "form";
+@import "button";
+@import "alert";
+@import "tab";
+@import "modal";
+@import "scrollBar";
+
+$body-bg: #f3f3f4;
+
+body {
+  background-color: $body-bg;
+  padding-top: 55px;
+  font-size: small;
+}
+
+html, body {
+  height: 100%;
+  header {
+    height: 20%;
+  }
+  .main {
+    width: 90%;
+    margin-top: 20px;
+    height: 95%;
+    .row {
+      height: 100%;
+      & > div {
+        height: 100%;
+      }
+    }
+  }
+}
+.content {
+  min-height: 98%;
+}
+
+.spinner {
+  text-align: center;
+}
