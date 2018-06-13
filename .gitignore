@@ -1,0 +1,8 @@
+.idea/
+
+.sass-cache/
+*.iml
+node_modules/
+
+target/
+log_dir_IS_UNDEFINED/

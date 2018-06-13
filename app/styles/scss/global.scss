@@ -1,9 +1,7 @@
 @import "base";
 @import "menu";
 @import "header";
-@import "page";
 @import "ribbon";
-//@import "login";
 @import "table";
 @import "form";
 @import "button";
@@ -12,12 +10,13 @@
 @import "modal";
 @import "scrollBar";
 
+
 $body-bg: #f3f3f4;
 
 body {
   background-color: $body-bg;
   padding-top: 55px;
-  font-size: small;
+  font-size: smaller;
 }
 
 html, body {
@@ -26,7 +25,7 @@ html, body {
     height: 20%;
   }
   .main {
-    width: 90%;
+    width: 100%;
     margin-top: 20px;
     height: 95%;
     .row {
@@ -37,10 +36,42 @@ html, body {
     }
   }
 }
+
 .content {
+  margin-left: 0px;
+  background-color: $body-bg;
   min-height: 98%;
 }
 
 .spinner {
   text-align: center;
+}
+
+
+.alert {
+  border: 0;
+  border-radius: 0;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.alert[data-notify="container"] {
+  padding: 10px 10px 10px 20px;
+  border-radius: 4px;
+}
+.alert.alert-with-icon {
+  padding-left: 65px;
+}
+
+.alert-info {
+  background-color: #63d8f1;
+}
+
+.alert-success {
+  background-color: #a1e82c;
+}
+
+.alert-warning {
+  background-color: #ffbc67;
 }

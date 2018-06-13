@@ -15,17 +15,17 @@
 
     <select id="findById" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List"/>
-        FROM user WHERE id = #{id}
+        FROM user_tbl WHERE id = #{id}
     </select>
 
     <select id="findByName" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List"/>
-        FROM user WHERE name = #{name}
+        FROM user_tbl WHERE name = #{name}
     </select>
 
     <select id="getList" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List"/>
-        FROM user
+        FROM user_tbl
         <where>
             <if test="name != ''">
               name LIKE CONCAT('%',#{name},'%')
@@ -36,7 +36,7 @@
 
     <select id="count" resultType="Integer">
         SELECT COUNT(*)
-        FROM user
+        FROM user_tbl
         <where>
             <if test="name != ''">
                 name LIKE CONCAT('%',#{name},'%')
@@ -45,7 +45,7 @@
     </select>
 
     <insert id="insert">
-        INSERT IGNORE INTO user (name, createTime)
+        INSERT IGNORE INTO user_tbl (name, createTime)
         VALUES(#{name}, #{createTime})
         <selectKey resultType="long" order="AFTER" keyProperty="id">
             SELECT LAST_INSERT_ID() AS id
@@ -53,11 +53,11 @@
     </insert>
 
     <delete id="delete" parameterType="Long">
-        DELETE FROM user WHERE id=#{id}
+        DELETE FROM user_tbl WHERE id=#{id}
     </delete>
 
     <update id="update">
-        UPDATE user
+        UPDATE user_tbl
         <set>
             <if test="name != null">name = #{name}</if>
         </set>

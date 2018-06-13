@@ -34,20 +34,21 @@
     <script src="../scripts/common/njPartials.js"></script>
     <script src="../scripts/common/component.js"></script>
 
-    <script src="../scripts/sys/userApp.js"></script>
-    <script src="../scripts/sys/userService.js"></script>
-    <script src="../scripts/sys/userListCtrl.js"></script>
-    <script src="../scripts/sys/userDetailsCtrl.js"></script>
+    <script src="../scripts/sys/user/userApp.js"></script>
+    <script src="../scripts/sys/user/userService.js"></script>
+    <script src="../scripts/sys/user/userListCtrl.js"></script>
+    <script src="../scripts/sys/user/userDetailsCtrl.js"></script>
 </head>
 <body>
 
 <div nj-header></div>
 
+
 <div class="container main">
     <div class="row">
-        <div class="col-sm-4 col-md-2 col-lg-2" nj-menu></div>
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2" nj-menu></div>
         <div class="col-xs-12 col-sm-8 col-md-10 col-lg-10">
-            <div class="content" ui-view></div>
+            <div class="content offset" ui-view></div>
         </div>
     </div>
 </div>

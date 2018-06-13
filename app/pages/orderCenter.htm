@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html ng-app="OrderApp" xmlns:ng="http://angularjs.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../lib/font-awesome-4.6.3/css/font-awesome.min.css">
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="../images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon/favicon.ico" type="image/x-icon">
+    <!-- Custom styles for this template -->
+    <link href="../styles/stylesheets/global.css" rel="stylesheet">
+
+
+    <script src="../scripts/util/browser-checker.js"></script>
+
+    <script src="../lib/jquery/jquery-2.0.2.min.js"></script>
+    <script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../lib/underscore/underscore-min.js"></script>
+    <script src="../lib/angular/angular.min.js"></script>
+    <script src="../lib/angular/angular-ui-router.min.js"></script>
+    <script src="../lib/angular-modal-service/dst/angular-modal-service.js"></script>
+
+    <script src="../scripts/common/common.js"></script>
+    <script src="../scripts/common/commonFilter.js"></script>
+    <script src="../scripts/common/config.js"></script>
+    <script src="../scripts/common/constant.js"></script>
+    <script src="../scripts/common/httpInterceptor.js"></script>
+    <script src="../scripts/common/pagerService.js"></script>
+    <script src="../scripts/common/njModal.js"></script>
+    <script src="../scripts/common/njPager.js"></script>
+    <script src="../scripts/common/njPartials.js"></script>
+    <script src="../scripts/common/component.js"></script>
+    <script src="../scripts/sys/order/orderApp.js"></script>
+
+
+</head>
+<body>
+<div nj-header></div>
+<div class="content">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="menu">
+                            <a href="#">
+                                <i style="font-size:medium" class="fa fa-edit">修改备注</i>
+                            </a>
+                        </li>
+
+                        <li class="menu">
+                            <a href="#">
+                                <i style="font-size:medium" class="fa fa-times-circle">作废</i>
+                            </a>
+                        </li>
+
+                        <li class="menu">
+                            <a href="#">
+                                <i style="font-size:medium" class="fa fa-wifi">网络</i>
+                            </a>
+                        </li>
+
+                        <li class="menu">
+                            <a href="#">
+                                <i style="font-size:medium" class="fa  fa-sign-out">退出</i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <!--------------------------
+          | Your Page Content Here |
+          -------------------------->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">订单查询</h3>
+                    </div>
+                    <form role="form">
+                        <div class="panel-body">
+                            <div class="col-xs-4">
+                                <div class="row">
+                                    <div class="col-xs-9">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label >订单时间</label>
+                                                </div>
+                                                <div class="col-xs-8">
+
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="text" class="form-control pull-right" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label >至</label>
+                                                </div>
+                                                <div class="col-xs-8">
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="text" class="form-control pull-right" id="datepicker">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label >接线员</label>
+                                                </div>
+                                                <div class="col-xs-8">
+                                                    <select  type="text" class="form-control pull-left">
+                                                        <option>535</option>
+                                                        <option>525</option>
+                                                        <option>545</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-3">
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" checked>
+                                                    等待派工
+                                                </label>
+                                            </div>
+
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" checked>
+                                                    等待回单
+                                                </label>
+                                            </div>
+
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" checked>
+                                                    订单完成
+                                                </label>
+                                            </div>
+
+                                            <div class="checkbox">
+                                                <label style="color: red;">
+                                                    <input type="checkbox">
+                                                    作废订单
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label >分公司</label>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <select  type="text" class="form-control pull-left">
+                                                <option>云南百江燃气有限公司</option>
+                                                <option>云南丽江燃气有限公司</option>
+                                                <option>云南昆明燃气有限公司</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label >片区名称</label>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <select  type="text" class="form-control pull-left">
+                                                <option>安宁供气站片区</option>
+                                                <option>丽江供气站片区</option>
+                                                <option>昆明供气站片区</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label >配送门店</label>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <select  type="text" class="form-control pull-left">
+                                                <option>1号</option>
+                                                <option>2号</option>
+                                                <option>3号</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label >客户类型</label>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <select  type="text" class="form-control pull-left">
+                                                <option>个人用户</option>
+                                                <option>集团用户</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label >客户地址</label>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <input type="text" class="form-control pull-left">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label >客户名称</label>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <input type="text" class="form-control pull-left">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label >客户名称</label>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <input type="text" class="form-control pull-left">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <div class="row">
+                                <div class="col-xs-2 pull-left">
+                                    <button type="button" class="btn btn-default">搜索&nbsp;&nbsp;<i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+
+                                <div class="col-xs-4 pull-left">
+                                    <div class="row" id="example2_paginate">
+                                        <ul class="pagination no-margin">
+                                            <li class="paginate_button previous disabled" id="example2_previous">
+                                                <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                                            </li>
+                                            <li class="paginate_button active">
+                                                <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
+                                            </li>
+                                            <li class="paginate_button next" id="example2_next">
+                                                <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2 pull-left">
+                                    <button type="button" class="btn btn-default">清空&nbsp;&nbsp;<i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">订单详情</h3>
+                    </div>
+                    <form role="form">
+                        <div class="panel-body">
+
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th style="background: lightblue">序号</th>
+                                    <th style="background: lightblue">订单日期</th>
+                                    <th style="background: lightblue">订单编号</th>
+                                    <th style="background: lightblue">订单状态</th>
+                                    <th style="background: lightblue">客户名称</th>
+                                    <th style="background: lightblue">客户电话</th>
+                                    <th style="background: lightblue">客户地址</th>
+                                    <th style="background: lightblue">操作时间</th>
+                                    <th style="background: lightblue">数量</th>
+                                    <th style="background: lightblue">门店</th>
+                                    <th style="background: lightblue">运气工</th>
+                                    <th style="background: lightblue">钢瓶情况</th>
+                                    <th style="background: lightblue">应收金额(元)</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td><td>2017-01-01</td><td>20170101255688</td><td>完成</td><td>李四</td><td>江苏省南京市白下区苜蓿园大街1栋101</td>
+                                    <td>12345678912</td><td>2017-01-07</td><td>1</td><td>石杨路门店</td><td>张某某</td><td>替换钢瓶</td>
+                                    <td>120</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td><td>2017-02-01</td><td>20170201256898</td><td>完成</td><td>王小二</td><td>江苏省南京市秦淮区永智路1号1栋119</td>
+                                    <td>12345678912</td><td>2017-02-07</td><td>1</td><td>白下科技园门店</td><td>张某某</td><td>沿用老钢瓶</td>
+                                    <td>110</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td>
+                                <tr>
+                                    <td>7</td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>8</td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>9</td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                                    <td></td>
+                                </tr>
+                                </tr>
+
+                            </table>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+        <p1>
+            <br>
+        </p1>
+
+    </section>
+    <!-- /.content -->
+
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Home tab content -->
+            <div class="tab-pane active" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                <p>Will be 23 on April 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+                <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:;">
+                            <h4 class="control-sidebar-subheading">
+                                Custom Template Design
+                <span class="pull-right-container">
+                    <span class="label label-danger pull-right">70%</span>
+                  </span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+            </div>
+            <!-- /.tab-pane -->
+            <!-- Stats tab content -->
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+            <!-- /.tab-pane -->
+            <!-- Settings tab content -->
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">General Settings</h3>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Report panel usage
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Some information about this general settings option
+                        </p>
+                    </div>
+                    <!-- /.form-group -->
+                </form>
+            </div>
+            <!-- /.tab-pane -->
+        </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+    immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+</body>
+
+</html>

@@ -145,11 +145,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 aside {
-  margin: 0 0 0 50px;
+  margin: 0px 40px 0px -15px;
   padding-top: 30px;
   position: relative;
-  height: 300px;
-  overflow-y: auto;
+  height: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
   padding-bottom: 30px;
   background-color: #434a54;
@@ -438,7 +438,7 @@ nav ul ul > li:hover b {
   border: 0;
 }
 .navbar-brand span {
-  margin-left: 55px;
+  margin-left: 0px;
   color: #fff;
   font-size: medium;
 }
@@ -489,31 +489,26 @@ nav ul ul > li:hover b {
   padding-bottom: 0px;
 }
 
-.content {
-  background: #fff;
-  position: relative;
-  left: 0;
+.navbar-clock {
+  height: 50px;
+  padding: 17px 0px 5px 0px;
 }
-.content .row {
-  margin: 0;
-  padding-bottom: 15px;
+.navbar-clock span {
+  margin-left: 0px;
+  color: #fff;
+  font-size: medium;
+  text-align: center;
 }
-.content section .section-title {
-  height: auto;
-  width: 40%;
-  padding: 15px 0;
-  font-size: 24px;
-  vertical-align: middle;
-  color: #434a54;
-}
-.content section .split-line {
-  margin: 0 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+.navbar-clock a {
+  margin-left: 0px;
+  color: #fff;
+  font-size: medium;
+  text-align: center;
 }
 
 .ribbon {
   min-height: 20px;
-  background: #434a54;
+  background: #337ab7;
   padding: 0 13px;
   position: relative;
 }
@@ -889,10 +884,6 @@ form .col-10 {
   font-weight: bold;
 }
 
-.tab-content {
-  min-height: 500px;
-}
-
 .nav-tabs li a {
   color: #434a54;
 }
@@ -951,7 +942,7 @@ form .col-10 {
 body {
   background-color: #f3f3f4;
   padding-top: 55px;
-  font-size: small;
+  font-size: smaller;
 }
 
 html, body {
@@ -961,7 +952,7 @@ html header, body header {
   height: 20%;
 }
 html .main, body .main {
-  width: 90%;
+  width: 100%;
   margin-top: 20px;
   height: 95%;
 }
@@ -973,9 +964,40 @@ html .main .row > div, body .main .row > div {
 }
 
 .content {
+  margin-left: 0px;
+  background-color: #f3f3f4;
   min-height: 98%;
 }
 
 .spinner {
   text-align: center;
+}
+
+.alert {
+  border: 0;
+  border-radius: 0;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.alert[data-notify="container"] {
+  padding: 10px 10px 10px 20px;
+  border-radius: 4px;
+}
+
+.alert.alert-with-icon {
+  padding-left: 65px;
+}
+
+.alert-info {
+  background-color: #63d8f1;
+}
+
+.alert-success {
+  background-color: #a1e82c;
+}
+
+.alert-warning {
+  background-color: #ffbc67;
 }

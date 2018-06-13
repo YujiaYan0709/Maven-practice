@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html ng-app="MainApp" xmlns:ng="http://angularjs.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../lib/font-awesome-4.6.3/css/font-awesome.min.css">
+    <link href="../styles/stylesheets/login.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+    <div class="container">
+        <center>
+            <div class="middle">
+                <div id="login">
+
+                    <form action="javascript:void(0);" method="get">
+
+                        <fieldset class="clearfix">
+
+                            <p ><span class="fa fa-user"></span><input type="text"  Placeholder="Username" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+                            <p><span class="fa fa-lock"></span><input type="password"  Placeholder="Password" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+
+                            <div>
+                                <span style="width:30%; text-align:left;  display: inline-block;"><a class="small-text" href="#">忘记密码?</a></span>
+                                <span style="width:30%; text-align:right;  display: inline-block;"><a href="../pages/mainCenter.htm" class="btn btn-info">登录</a></span>
+                                <span style="width:30%; text-align:right;  display: inline-block;"><a href="../pages/register/RegisterStep1.html" class="btn btn-info">注册</a></span>
+                            </div>
+
+                        </fieldset>
+                        <div class="clearfix"></div>
+                    </form>
+
+                    <div class="clearfix"></div>
+
+                </div> <!-- end login -->
+                <div class="logo">百江燃气
+
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </center>
+    </div>
+
+</div>
+</body>
+</html>
